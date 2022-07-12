@@ -1,0 +1,40 @@
+<%- include('includes/head'); %>
+  <%- include('includes/nav'); %>
+
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-2"></div>
+
+        <div class="col-lg-8 my-3">
+          <h1 class="text-center">Entrar</h1>
+
+          <p class="text-center my-4">Se você já tem uma conta, faça seu login abaixo:</p>
+
+          <%- include('includes/messages'); %>
+          
+          <form class="login-form" action="/login/login" method="POST">
+            <input type="hidden" name="_csrf" value=<%=csrfToken %>>
+            <div class="form-group">
+              <label for="input-email">Seu e-mail</label>
+              <input type="email" class="form-control" id="input-email" aria-describedby="emailHelp"
+                placeholder="Enter email" name="email">
+            </div>
+            <div class="form-group">
+              <label for="input-password">Sua senha</label>
+              <input type="password" class="form-control" id="input-password" placeholder="Password" name="password">
+            </div>
+            <div class="form-group form-check">
+              <input type="checkbox" class="form-check-input" id="checkKeepLogged">
+              <label class="form-check-label" for="checkKeepLogged">Mantenha-me conectado</label>
+            </div>
+            <button type="submit" class="btn btn-primary">Entrar</button>
+            <a href="/signup" class="btn btn-primary">Cadastre-se</a>
+          </form>
+        </div>
+        <div class="col-lg-2"></div>
+      </div>
+    </div>
+
+
+    <%- include('includes/footer'); %>
