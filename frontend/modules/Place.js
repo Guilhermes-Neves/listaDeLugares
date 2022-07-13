@@ -1,6 +1,6 @@
 import validator from "validator";
 
-export default class Contact {
+export default class Place {
   constructor(form) {
     this.form = document.querySelector(form);
   }
@@ -28,26 +28,12 @@ export default class Contact {
   validate(e) {
     const el = e.target;
     const nameInput = el.querySelector('#input-name');
-    const emailInput = el.querySelector('#input-email');
-    const phoneInput = el.querySelector('#input-phone');
     let valid = true;
 
     this.removeErros();
 
     if(nameInput.value === '') {
       this.createError(nameInput, 'Nome deve ser informado.');
-      valid = false;
-    }
-
-    if(!validator.isEmail(emailInput.value)) {
-      this.createError(emailInput, 'Informe um e-mail válido.');
-      valid = false;
-    }
-
-
-    if (!emailInput.value && !phoneInput.value) {
-      this.createError(emailInput, 'E-mail ou telefone deve ser informado.');
-      this.createError(phoneInput, 'E-mail ou telefone deve ser informado.');
       valid = false;
     }
 

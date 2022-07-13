@@ -1,0 +1,44 @@
+<%- include('includes/head'); %>
+  <%- include('includes/nav'); %>
+
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-2"></div>
+
+        <div class="col-lg-8 my-3">
+          <h1 class="text-center">Lugares</h1>
+
+          <p class="text-center my-4">Crie ou edite o lugar abaixo</p>
+
+          <%- include('includes/messages'); %>
+
+            <% if(place._id) { %>
+              <form class="place-form" action="/place/edit/<%= place._id %>" method="POST">
+              <% } else { %>
+                <form class="place-form" action="/place/register" method="POST">
+              <% } %>
+                <input type="hidden" name="_csrf" value=<%=csrfToken %>>
+                <div class="form-group">
+                  <label for="input-name">Nome</label>
+                  <input value="<%= place.name%>" type="text" class="form-control" id="input-name"
+                    placeholder="Digite seu nome" name="name">
+                </div>
+                <div class="form-group">
+                  <label for="input-comment">Comentário</label>
+                  <input value="<%= place.comment%>" type="text" class="form-control" id="input-comment"
+                    placeholder="O que achamos do lugar" name="comment">
+                </div>
+                <div class="form-group">
+                  <label for="check-visited">Visitado:</label>
+                  <input type="checkbox" name="visited" id="visited">
+                </div>
+                <button type="submit" class="btn btn-primary">Salvar</button>
+              </form>
+        </div>
+        <div class="col-lg-2"></div>
+      </div>
+    </div>
+
+
+    <%- include('includes/footer'); %>

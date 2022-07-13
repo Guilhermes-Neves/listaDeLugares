@@ -4,7 +4,7 @@ const route = express.Router();
 const homeController = require('./src/controllers/homeController');
 const loginController = require('./src/controllers/loginController');
 const signupController = require('./src/controllers/signupController');
-const contatoController = require('./src/controllers/contatoController');
+const placeController = require('./src/controllers/placeController');
 
 const { loginRequired } = require('./src/middlewares/middleware')
 
@@ -21,10 +21,10 @@ route.get('/signup', signupController.index);
 route.post('/signup/register', signupController.register);
 
 // Rotas de contato
-route.get('/contato', loginRequired, contatoController.index);
-route.post('/contato/register', loginRequired, contatoController.register);
-route.get('/contato/:id', loginRequired, contatoController.editIndex);
-route.post('/contato/edit/:id', loginRequired, contatoController.edit);
-route.get('/contato/delete/:id', loginRequired, contatoController.delete);
+route.get('/place', loginRequired, placeController.index);
+route.post('/place/register', loginRequired, placeController.register);
+route.get('/place/:id', loginRequired, placeController.editIndex);
+route.post('/place/edit/:id', loginRequired, placeController.edit);
+route.get('/place/delete/:id', loginRequired, placeController.delete);
 
 module.exports = route;

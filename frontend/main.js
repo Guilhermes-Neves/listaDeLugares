@@ -3,12 +3,12 @@ import 'regenerator-runtime/runtime';
 
 import Login from './modules/Login';
 import Signup from './modules/Signup';
-import Contact from './modules/Contact';
+import Place from './modules/Place';
 
 const login = new Login('.login-form');
 const signup = new Signup('.signup-form');
-const contact = new Contact('.contact-form');
+const place = new Contact('.place-form');
 
 login.init();
 signup.init();
-contact.init();
+place.init();

@@ -7,42 +7,36 @@
         <div class="col-lg-2"></div>
 
         <div class="col-lg-8 my-3">
-          <h1 class="text-center">Agenda</h1>
+          <h1 class="text-center">Lugares</h1>
           
           <%- include('includes/messages'); %>
-          <% if(contatos.length> 0) { %>
-            <p class="text-center lead">Seus contatos estão abaixo</p>
+          <% if(lugares.length> 0) { %>
+            <p class="text-center lead">Nossos passeios estão abaixo:</p>
               <div class="responsive-table">
                 <table class="table my-3">
                   <thead>
                     <th>Nome</th>
-                    <th>Sobrenome</th>
-                    <th>Email</th>
-                    <th>Telefone</th>
+                    <th>Comentário</th>
                     <th colspan="2">Ações</th>
                   </thead>
-                  <% contatos.forEach((contato)=> { %>
-                    <tr>
-                      <td>
-                        <%= contato.name %>
-                      </td>
-                      <td>
-                        <%= contato.lastName %>
-                      </td>
-                      <td>
-                        <%= contato.phone %>
-                      </td>
-                      <td>
-                        <%= contato.email %>
-                      </td>
-                      <td><a href="/contato/<%= contato._id %>">Editar</a></td>
-                      <td><a class="text-danger" href="/contato/delete/<%= contato._id %>">Excluir</a></td>
-                    </tr>
-                    <% }); %>
+                  <tbody>
+                    <% lugares.forEach((lugar)=> { %>
+                      <tr>
+                        <td>
+                          <%= lugar.name %>
+                        </td>
+                        <td>
+                          <%= lugar.comment %>
+                        </td>
+                        <td><a href="/place/<%= lugar._id %>">Editar</a></td>
+                        <td><a class="text-danger" href="/place/delete/<%= lugar._id %>">Excluir</a></td>
+                      </tr>
+                      <% }); %>
+                  </tbody>
                 </table>
               </div>
               <% } else { %>
-                <p class="text-center lead">Não há contatos cadastrados.</p>
+                <p class="text-center lead">Não há lugares cadastrados.</p>
               <% } %>
         </div>
 
